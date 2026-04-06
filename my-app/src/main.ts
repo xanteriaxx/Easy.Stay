@@ -1,60 +1,94 @@
-import './main.css'
-import typescriptLogo from './assets/typescript.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import { setupCounter } from './counter.ts'
+﻿import './main.css'
+import { createButton } from './components/button'
+import { createHotelCardsSection } from './components/hotel-cards'
+import { createPostCardsSection } from './components/post-cards'
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-<section id="center">
-  <div class="hero">
-    <img src="${heroImg}" class="base" width="170" height="179">
-    <img src="${typescriptLogo}" class="framework" alt="TypeScript logo"/>
-    <img src=${viteLogo} class="vite" alt="Vite logo" />
-  </div>
-  <div>
-    <h1>Get started</h1>
-    <p>Edit <code>src/main.ts</code> and save to test <code>HMR</code></p>
-  </div>
-  <button id="counter" type="button" class="counter"></button>
-</section>
+const app = document.querySelector<HTMLDivElement>('#app')
 
-<div class="ticks"></div>
+if (!app) {
+  throw new Error('App root #app not found')
+}
 
-<section id="next-steps">
-  <div id="docs">
-    <svg class="icon" role="presentation" aria-hidden="true"><use href="/icons.svg#documentation-icon"></use></svg>
-    <h2>Documentation</h2>
-    <p>Your questions, answered</p>
-    <ul>
-      <li>
-        <a href="https://vite.dev/" target="_blank">
-          <img class="logo" src=${viteLogo} alt="" />
-          Explore Vite
-        </a>
-      </li>
-      <li>
-        <a href="https://www.typescriptlang.org" target="_blank">
-          <img class="button-icon" src="${typescriptLogo}" alt="">
-          Learn more
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div id="social">
-    <svg class="icon" role="presentation" aria-hidden="true"><use href="/icons.svg#social-icon"></use></svg>
-    <h2>Connect with us</h2>
-    <p>Join the Vite community</p>
-    <ul>
-      <li><a href="https://github.com/vitejs/vite" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#github-icon"></use></svg>GitHub</a></li>
-      <li><a href="https://chat.vite.dev/" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#discord-icon"></use></svg>Discord</a></li>
-      <li><a href="https://x.com/vite_js" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#x-icon"></use></svg>X.com</a></li>
-      <li><a href="https://bsky.app/profile/vite.dev" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#bluesky-icon"></use></svg>Bluesky</a></li>
-    </ul>
-  </div>
-</section>
+const hotelCards = [
+  {
+    imageUrl: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80',
+    rating: '4.8',
+    title: 'Номер у окна',
+    location: 'Старый Тбилиси',
+    date: '28 октября — 1 ноября',
+    price: '₾2016',
+    priceSuffix: '/ 6 дней',
+    features: ['4 кровати', '8 гостей', '1350 кв. футов'],
+  },
+  {
+    imageUrl: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80',
+    rating: '4.8',
+    title: 'Светлый люкс',
+    location: 'Ваке, Тбилиси',
+    date: '28 октября — 1 ноября',
+    price: '₾2016',
+    priceSuffix: '/ 6 дней',
+    features: ['4 кровати', '8 гостей', '1350 кв. футов'],
+  },
+  {
+    imageUrl: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80',
+    rating: '4.8',
+    title: 'Классический номер',
+    location: 'Сололаки, Тбилиси',
+    date: '28 октября — 1 ноября',
+    price: '$2016',
+    priceSuffix: '/ 6 night',
+    features: ['4 beds', '8 guests', '1350 sq. feet'],
+  },
+] as const
 
-<div class="ticks"></div>
-<section id="spacer"></section>
+const postCards = [
+  {
+    imageUrl: 'https://images.unsplash.com/photo-1555992828-ca4dbe41d294?auto=format&fit=crop&w=900&q=80',
+    date: '2022 года 20 мая',
+    readTime: '5:60',
+    title: 'Мегаполис Афины',
+    description: 'Актуальные локации для прогулок, короткий гид по району и лучшие панорамные точки города.',
+  },
+  {
+    imageUrl: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80',
+    date: '2022 года 20 мая',
+    readTime: '5:60',
+    title: 'Видения и горизонты',
+    description: 'Истории из путешествия и заметки о том, как выбрать маршрут для насыщенного выходного.',
+  },
+  {
+    imageUrl: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=900&q=80',
+    date: '2022 года 20 мая',
+    readTime: '5:60',
+    title: 'Путешествие дня',
+    description: 'Практичные советы по перелётам, пересадкам и быстрому планированию коротких поездок.',
+  },
+] as const
+
+app.innerHTML = `
+  <section class="page-intro">
+    <p class="eyebrow">UI Component</p>
+    <h1>Компоненты карточек</h1>
+    <p class="lead">
+      Два отдельных типа карточек: для отелей и для постов блога.
+    </p>
+  </section>
 `
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+const intro = app.querySelector<HTMLElement>('.page-intro')
+
+if (!intro) {
+  throw new Error('Intro section not found')
+}
+
+const actions = document.createElement('div')
+actions.className = 'page-intro__actions'
+actions.append(
+  createButton({ label: 'Основная кнопка', variant: 'primary', href: '#' }),
+  createButton({ label: 'Прозрачная', variant: 'secondary', href: '#' }),
+)
+
+intro.append(actions)
+app.append(createHotelCardsSection(hotelCards))
+app.append(createPostCardsSection(postCards))
