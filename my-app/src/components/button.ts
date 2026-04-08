@@ -1,11 +1,4 @@
-﻿type ButtonVariant = 'primary' | 'secondary'
-
-type ButtonOptions = {
-  label: string
-  variant: ButtonVariant
-  href?: string
-  type?: 'button' | 'submit' | 'reset'
-}
+import type { ButtonOptions } from '../types'
 
 export const createButton = ({
   label,

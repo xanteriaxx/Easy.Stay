@@ -1,13 +1,5 @@
-﻿import { createButton } from './button'
-
-type CardItem = {
-  eyebrow: string
-  title: string
-  description: string
-  meta: string
-  linkLabel: string
-  linkHref: string
-}
+import type { CardItem } from '../types'
+import { createButton } from './button'
 
 const createCard = (card: CardItem): HTMLElement => {
   const article = document.createElement('article')

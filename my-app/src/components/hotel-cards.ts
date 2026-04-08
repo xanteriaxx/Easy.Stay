@@ -1,13 +1,4 @@
-﻿type HotelCardItem = {
-  imageUrl: string
-  rating: string
-  title: string
-  location: string
-  date: string
-  price: string
-  priceSuffix: string
-  features: [string, string, string]
-}
+import type { HotelCardItem } from '../types'
 
 const createHotelCard = (card: HotelCardItem): HTMLElement => {
   const article = document.createElement('article')

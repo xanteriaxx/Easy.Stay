@@ -1,10 +1,4 @@
-﻿type PostCardItem = {
-  imageUrl: string
-  date: string
-  readTime: string
-  title: string
-  description: string
-}
+import type { PostCardItem } from '../types'
 
 const createPostCard = (card: PostCardItem): HTMLElement => {
   const article = document.createElement('article')
