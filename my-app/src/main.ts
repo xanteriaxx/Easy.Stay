@@ -1,9 +1,9 @@
 ﻿import './main.css'
 import { createHeader } from './components/header/header'
-import { createHomePage } from './pages/Home/Home.jsx'
-import { createAboutPage } from './pages/About.jsx'
-import { createContactPage } from './pages/Contact.jsx'
-import { createReservationPage } from './Reservation.jsx'
+import { createHomePage } from './pages/Home/Home'
+import { createAboutPage } from './pages/About'
+import { createContactPage } from './pages/Contact'
+import { createReservationPage } from './Reservation'
 
 const app = document.querySelector<HTMLDivElement>('#app')
 

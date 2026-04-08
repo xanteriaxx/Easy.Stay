@@ -1,4 +1,8 @@
-﻿import './header.css'
+import './header.css'
+import logoUrl from '../../assets/header/Logo.svg'
+import moneyIconUrl from '../../assets/header/money.svg'
+import languageIconUrl from '../../assets/header/language.svg'
+import userIconUrl from '../../assets/header/user.svg'
 
 const navItems = [
   { label: 'მთავარი გვერდი', href: '#/' },
@@ -18,20 +22,20 @@ export const createHeader = (): HTMLElement => {
   header.innerHTML = `
     <div class="site-header__inner">
       <a class="site-header__brand" href="#/" aria-label="Easy Stay home">
-        <img class="site-header__logo" src="/header/Logo.svg" alt="Easy Stay logo">
+        <img class="site-header__logo" src="${logoUrl}" alt="Easy Stay logo">
       </a>
       <nav class="site-header__nav" aria-label="Main navigation">
         ${navLinks}
       </nav>
       <div class="site-header__actions">
         <button class="site-header__icon-button site-header__icon-button--money" type="button" aria-label="Currency selector">
-          <img class="site-header__icon" src="/header/money.svg" alt="">
+          <img class="site-header__icon" src="${moneyIconUrl}" alt="">
         </button>
         <button class="site-header__icon-button site-header__icon-button--language" type="button" aria-label="Language selector">
-          <img class="site-header__icon" src="/header/language.svg" alt="">
+          <img class="site-header__icon" src="${languageIconUrl}" alt="">
         </button>
         <button class="site-header__icon-button site-header__icon-button--user" type="button" aria-label="Profile">
-          <img class="site-header__icon site-header__icon--user" src="/header/user.svg" alt="">
+          <img class="site-header__icon site-header__icon--user" src="${userIconUrl}" alt="">
         </button>
       </div>
     </div>
