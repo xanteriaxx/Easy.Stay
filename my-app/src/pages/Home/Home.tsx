@@ -1,3 +1,4 @@
+import { Search } from '../../components/Search'
 import './Home.css'
 import homeImageUrl from '../../assets/home/pic.svg'
 
@@ -18,6 +19,10 @@ export const HomePage = () => {
             ჩვენ გვაქვს რამდენიმე ათასი ბინა ყველა გემოვნებისთვის მსოფლიოს ყველა კუთხეში
           </p>
         </div>
+      </div>
+
+      <div className="home-page__search">
+        <Search />
       </div>
     </section>
   )

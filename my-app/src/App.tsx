@@ -20,6 +20,11 @@ export const App = () => {
   const route = getRouteByPath(currentPath)
   const Page = route.component
 
+  useEffect(() => {
+    document.title = `${route.pageTitle} | Easy Stay`
+    window.scrollTo(0, 0)
+  }, [route.pageTitle])
+
   return (
     <MainLayout currentPath={currentPath}>
       <Page />

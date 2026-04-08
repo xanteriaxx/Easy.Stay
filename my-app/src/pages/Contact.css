@@ -110,23 +110,9 @@
   cursor: pointer;
 }
 
-@media (max-width: 900px) {
-  .contact-page {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-page__title {
-    font-size: 40px;
-  }
-}
-
-@media (max-width: 640px) {
-  .contact-page__panel,
-  .contact-page__form-card {
-    padding: 24px;
-  }
-
-  .contact-page__title {
-    font-size: 34px;
-  }
+.contact-page__success {
+  margin: 0;
+  color: var(--color-accent);
+  font-size: 15px;
+  font-weight: 700;
 }
