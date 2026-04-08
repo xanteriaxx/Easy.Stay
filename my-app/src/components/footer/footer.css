@@ -68,7 +68,7 @@
   align-items: stretch;
   width: 372px;
   height: 40px;
-  border: 1px solid #ff7b72;
+  border: 1px solid var(--color-border-accent-soft);
   border-radius: 12px;
   overflow: hidden;
 }
@@ -88,7 +88,7 @@
   justify-content: center;
   width: 42px;
   height: 40px;
-  background: #ee685f;
+  background: var(--color-accent-coral);
   flex: 0 0 auto;
 }
 
@@ -100,7 +100,7 @@
 
 .site-footer__divider {
   height: 1px;
-  background: #b8b8b8;
+  background: var(--color-border-strong);
 }
 
 .site-footer__bottom {
@@ -149,7 +149,7 @@
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: #2f8bdd;
+  background: var(--color-background-brand);
 }
 
 .site-footer__social-icon {

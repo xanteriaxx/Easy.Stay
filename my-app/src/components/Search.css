@@ -7,10 +7,10 @@
   height: 70px;
   align-self: center;
   padding: 0 20px;
-  border: 1px solid #d6d6d6;
+  border: 1px solid var(--color-border-search);
   border-radius: 36px;
   background: var(--color-background-primary);
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 0 8px rgba(var(--color-shadow-rgb), 0.16);
 }
 
 .search__section {
@@ -24,7 +24,7 @@
 .search__icon {
   width: 28px;
   height: 28px;
-  color: #8f8f8f;
+  color: var(--color-text-muted);
 }
 
 .search__text {
@@ -41,7 +41,7 @@
 }
 
 .search__value {
-  color: #a2a2a2;
+  color: var(--color-text-placeholder);
   font-size: 16px;
   font-weight: 400;
   line-height: 1;
@@ -50,7 +50,7 @@
 .search__divider {
   width: 2px;
   height: 40px;
-  background: #ebebeb;
+  background: var(--color-border-divider);
 }
 
 .search__submit {
@@ -60,7 +60,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #f2685a;
+  background: var(--color-accent-coral-alt);
   color: var(--color-background-primary);
   cursor: pointer;
 }

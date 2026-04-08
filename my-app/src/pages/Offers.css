@@ -14,7 +14,7 @@
   margin: 0;
   font-size: 42px;
   font-weight: 700;
-  color: #262729;
+  color: var(--color-text-dark);
   padding-bottom: 64px;
 }
 
@@ -37,7 +37,7 @@
 }
 
 .offers-page__state--error {
-  color: #d14b4b;
+  color: var(--color-danger);
 }
 
 .offers-page__grid {
@@ -51,10 +51,10 @@
   overflow: hidden;
   width: 370px;
   height: 450px;
-  border: 1px solid #e7e6eb;
+  border: 1px solid var(--color-border-subtle);
   border-radius: 12px;
   background: var(--color-background-primary);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 6px 20px rgba(var(--color-shadow-rgb), 0.06);
 }
 
 .offers-page__image {
