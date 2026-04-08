@@ -1,20 +1,24 @@
 import './Home.css'
 import homeImageUrl from '../../assets/home/pic.svg'
-import { CardsSection } from '../../components/cards'
-import { HotelCardsSection } from '../../components/hotel-cards'
-import { PostCardsSection } from '../../components/post-cards'
-import { blogPostCards, featureCards, popularHotelCards } from '../../data'
 
 export const HomePage = () => {
   return (
-    <div className="home-page">
-      <section className="home-page__hero">
+    <section className="home-page">
+      <div className="home-page__media">
         <img className="home-page__image" src={homeImageUrl} alt="Home visual" />
-      </section>
 
-      <CardsSection cards={featureCards} />
-      <HotelCardsSection cards={popularHotelCards} />
-      <PostCardsSection cards={blogPostCards} />
-    </div>
+        <div className="home-page__content">
+          <h1 className="home-page__title">
+            იპოვეთ სასტუმრო
+            <br />
+            დასასვენებლად
+          </h1>
+
+          <p className="home-page__description">
+            ჩვენ გვაქვს რამდენიმე ათასი ბინა ყველა გემოვნებისთვის მსოფლიოს ყველა კუთხეში
+          </p>
+        </div>
+      </div>
+    </section>
   )
 }

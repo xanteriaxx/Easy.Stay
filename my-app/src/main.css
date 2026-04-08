@@ -20,8 +20,17 @@
 
 :root {
   font-family: 'BPG Nino', system-ui, 'Segoe UI', sans-serif;
-  color: #343434;
-  background: #ffffff;
+  --color-text-primary: #343434;
+  --color-text-secondary: #666666;
+  --color-text-dark: #262729;
+  --color-background-primary: #ffffff;
+  --color-background-muted: #f6f8f8;
+  --color-border-light: #e8e8e8;
+  --color-border-input: #d9d9d9;
+  --color-accent: #0f766e;
+  --color-accent-rgb: 15, 118, 110;
+  color: var(--color-text-primary);
+  background: var(--color-background-primary);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -36,12 +45,12 @@ html,
 body {
   margin: 0;
   min-height: 100%;
-  background: #ffffff;
+  background: var(--color-background-primary);
 }
 
 body {
   min-height: 100vh;
-  background: #ffffff;
+  background: var(--color-background-primary);
 }
 
 button,
@@ -57,7 +66,7 @@ button {
 
 #app {
   min-height: 100vh;
-  background: #ffffff;
+  background: var(--color-background-primary);
 }
 
 .page-content {
