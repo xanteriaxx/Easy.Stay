@@ -1,4 +1,5 @@
 import type { PropsWithChildren } from 'react'
+import { Footer } from '../footer/Footer'
 import { Header } from '../header/header'
 import type { RoutePath } from '../../router/routes'
 
@@ -11,6 +12,7 @@ export const MainLayout = ({ children, currentPath }: MainLayoutProps) => {
     <div className="main-layout">
       <Header currentPath={currentPath} />
       <main className="page-content">{children}</main>
+      <Footer />
     </div>
   )
 }

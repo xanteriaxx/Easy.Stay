@@ -5,19 +5,19 @@ type ButtonProps = ButtonOptions &
   Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> &
   Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'>
 
-export const Button = ({ label, variant, href, type = 'button', ...props }: ButtonProps) => {
-  const className = `button button--${variant}`
+export const Button = ({ label, variant, href, type = 'button', className, ...props }: ButtonProps) => {
+  const buttonClassName = ['button', `button--${variant}`, className].filter(Boolean).join(' ')
 
   if (href) {
     return (
-      <a className={className} href={href} {...props}>
+      <a className={buttonClassName} href={href} {...props}>
         {label}
       </a>
     )
   }
 
   return (
-    <button className={className} type={type} {...props}>
+    <button className={buttonClassName} type={type} {...props}>
       {label}
     </button>
   )

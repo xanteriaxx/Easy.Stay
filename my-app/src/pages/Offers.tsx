@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Button } from '../components/button'
 import { Search } from '../components/Search'
 import './Offers.css'
 
@@ -62,29 +63,35 @@ export const OffersPage = () => {
       {error ? <p className="offers-page__state offers-page__state--error">{error}</p> : null}
 
       {!loading && !error ? (
-        <div className="offers-page__grid">
-          {offers.map((offer) => (
-            <article key={offer.id} className="offers-page__card">
-              {offer.imageUrl || offer.image ? (
-                <img
-                  className="offers-page__image"
-                  src={offer.imageUrl ?? offer.image}
-                  alt={offer.title ?? offer.name ?? 'Offer'}
-                />
-              ) : null}
+        <>
+          <div className="offers-page__grid">
+            {offers.map((offer) => (
+              <article key={offer.id} className="offers-page__card">
+                {offer.imageUrl || offer.image ? (
+                  <img
+                    className="offers-page__image"
+                    src={offer.imageUrl ?? offer.image}
+                    alt={offer.title ?? offer.name ?? 'Offer'}
+                  />
+                ) : null}
 
-              <div className="offers-page__body">
-                <h2 className="offers-page__card-title">{offer.title ?? offer.name ?? 'Untitled offer'}</h2>
-                <p className="offers-page__card-copy">{offer.description ?? 'Description is not available yet.'}</p>
+                <div className="offers-page__body">
+                  <h2 className="offers-page__card-title">{offer.title ?? offer.name ?? 'Untitled offer'}</h2>
+                  <p className="offers-page__card-copy">{offer.description ?? 'Description is not available yet.'}</p>
 
-                <div className="offers-page__meta">
-                  {offer.location ? <span>{offer.location}</span> : null}
-                  {offer.price ? <span>{offer.price}</span> : null}
+                  <div className="offers-page__meta">
+                    {offer.location ? <span>{offer.location}</span> : null}
+                    {offer.price ? <span>{offer.price}</span> : null}
+                  </div>
                 </div>
-              </div>
-            </article>
-          ))}
-        </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="offers-page__footer">
+            <Button label="მეტის ნახვა" variant="primary" type="button" className="offers-page__button" />
+          </div>
+        </>
       ) : null}
     </section>
   )

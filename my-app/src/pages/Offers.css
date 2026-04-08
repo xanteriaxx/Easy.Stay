@@ -67,7 +67,7 @@
 .offers-page__body {
   display: grid;
   gap: 12px;
-  padding: 20px;
+  padding: 20px 10px;
 }
 
 .offers-page__card-title {
@@ -89,4 +89,16 @@
   gap: 12px;
   color: var(--color-text-dark);
   font-size: 15px;
+}
+
+.offers-page__footer {
+  display: flex;
+  justify-content: center;
+}
+
+.offers-page__button {
+  width: 229px;
+  min-height: 50px;
+  font-size: 16px;
+  font-weight: 700;
 }
