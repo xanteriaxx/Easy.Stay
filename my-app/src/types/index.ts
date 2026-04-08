@@ -38,3 +38,8 @@ export interface PostCardItem {
   title: string
   description: string
 }
+
+export interface WhyUsItem {
+  title: string
+  description: string
+}

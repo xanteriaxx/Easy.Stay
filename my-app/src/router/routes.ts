@@ -3,8 +3,9 @@ import { ReservationPage } from '../Reservation'
 import { AboutPage } from '../pages/About'
 import { ContactPage } from '../pages/Contact'
 import { HomePage } from '../pages/Home/Home'
+import { OffersPage } from '../pages/Offers'
 
-export type RoutePath = '#/' | '#/about' | '#/contact' | '#/reservation'
+export type RoutePath = '#/' | '#/about' | '#/contact' | '#/reservation' | '#/offers'
 
 export interface AppRoute {
   path: RoutePath
@@ -19,6 +20,12 @@ export const routes: readonly AppRoute[] = [
     label: 'მთავარი გვერდი',
     showInNav: true,
     component: HomePage,
+  },
+  {
+    path: '#/offers',
+    label: 'შეთავაზებები',
+    showInNav: true,
+    component: OffersPage,
   },
   {
     path: '#/reservation',

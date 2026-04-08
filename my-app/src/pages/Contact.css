@@ -1,0 +1,132 @@
+.contact-page {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.75fr);
+  gap: 32px;
+  padding: 48px 0 72px;
+  align-items: start;
+}
+
+.contact-page__panel,
+.contact-page__form-card {
+  border: 1px solid #e8e8e8;
+  border-radius: 24px;
+  background: #ffffff;
+  padding: 32px;
+}
+
+.contact-page__eyebrow {
+  margin: 0 0 12px;
+  color: #0f766e;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.contact-page__title {
+  margin: 0 0 16px;
+  font-size: 48px;
+  line-height: 1.05;
+}
+
+.contact-page__copy {
+  margin: 0 0 28px;
+  color: #666666;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.contact-page__details {
+  display: grid;
+  gap: 16px;
+}
+
+.contact-page__detail {
+  padding: 18px 20px;
+  border-radius: 18px;
+  background: #f6f8f8;
+}
+
+.contact-page__detail-label {
+  display: block;
+  margin-bottom: 6px;
+  color: #0f766e;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.contact-page__detail-value {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.contact-page__form {
+  display: grid;
+  gap: 18px;
+}
+
+.contact-page__field-group {
+  display: grid;
+  gap: 8px;
+}
+
+.contact-page__field-label {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.contact-page__input,
+.contact-page__textarea {
+  width: 100%;
+  border: 1px solid #d9d9d9;
+  border-radius: 16px;
+  padding: 14px 16px;
+  color: #343434;
+  background: #ffffff;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-page__input:focus,
+.contact-page__textarea:focus {
+  border-color: #0f766e;
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.12);
+}
+
+.contact-page__textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.contact-page__submit {
+  justify-self: start;
+  padding: 14px 24px;
+  border-radius: 999px;
+  background: #0f766e;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .contact-page {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-page__title {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-page__panel,
+  .contact-page__form-card {
+    padding: 24px;
+  }
+
+  .contact-page__title {
+    font-size: 34px;
+  }
+}

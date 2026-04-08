@@ -1,5 +1,5 @@
 import homeImageUrl from '../assets/home/pic.svg'
-import type { CardItem, HotelCardItem, PostCardItem } from '../types'
+import type { CardItem, HotelCardItem, PostCardItem, WhyUsItem } from '../types'
 
 export const featureCards: readonly CardItem[] = [
   {
@@ -82,5 +82,20 @@ export const blogPostCards: readonly PostCardItem[] = [
     readTime: '6 min read',
     title: 'What makes a hotel feel like home',
     description: 'From location to little details, here is what guests value most in a memorable stay.',
+  },
+] as const
+
+export const whyUsItems: readonly WhyUsItem[] = [
+  {
+    title: 'სწრაფი დაჯავშნა',
+    description: 'მარტივი პროცესი და გასაგები პირობები, რომ ოთახი რამდენიმე ნაბიჯში შეარჩიო.',
+  },
+  {
+    title: 'სანდო არჩევანი',
+    description: 'ყოველი შეთავაზება აღწერილია დეტალურად, რათა არჩევანი მშვიდად და თავდაჯერებით გააკეთო.',
+  },
+  {
+    title: 'მხარდაჭერა 24/7',
+    description: 'ჩვენი გუნდი მზად არის დაგეხმაროს როგორც დაჯავშნამდე, ისე დარჩენის განმავლობაში.',
   },
 ] as const
