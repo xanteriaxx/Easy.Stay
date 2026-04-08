@@ -1,17 +1,25 @@
-import type { PropsWithChildren } from 'react'
+import { useEffect } from 'react'
+import { Outlet, useLocation } from 'react-router-dom'
+import { errorRoute, routes } from '../../router/routes'
 import { Footer } from '../footer/Footer'
 import { Header } from '../header/header'
-import type { RoutePath } from '../../router/routes'
 
-interface MainLayoutProps extends PropsWithChildren {
-  currentPath: RoutePath
-}
+export const MainLayout = () => {
+  const location = useLocation()
+  const currentRoute = routes.find((route) => route.path === location.pathname)
+  const currentPageTitle = currentRoute?.pageTitle ?? errorRoute.pageTitle
 
-export const MainLayout = ({ children, currentPath }: MainLayoutProps) => {
+  useEffect(() => {
+    document.title = `${currentPageTitle ?? 'Easy Stay'} | Easy Stay`
+    window.scrollTo(0, 0)
+  }, [currentPageTitle, location.pathname])
+
   return (
     <div className="main-layout">
-      <Header currentPath={currentPath} />
-      <main className="page-content">{children}</main>
+      <Header />
+      <main className="page-content">
+        <Outlet />
+      </main>
       <Footer />
     </div>
   )

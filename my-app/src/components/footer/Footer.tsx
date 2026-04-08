@@ -8,14 +8,17 @@ import logoUrl from '../../assets/header/Logo.svg'
 
 const footerColumns = [
   {
+    id: 'company',
     title: 'სათაური',
     links: ['სათაური', 'სათაური', 'სათაური'],
   },
   {
+    id: 'services',
     title: 'სათაური',
     links: ['სათაური', 'სათაური', 'სათაური'],
   },
   {
+    id: 'support',
     title: 'სათაური',
     links: ['სათაური', 'სათაური', 'სათაური'],
   },
@@ -36,12 +39,12 @@ export const Footer = () => {
         <div className="site-footer__content">
           <div className="site-footer__top">
             {footerColumns.map((column) => (
-              <div key={column.title} className="site-footer__column">
+              <div key={column.id} className="site-footer__column">
                 <h3 className="site-footer__title">{column.title}</h3>
 
                 <div className="site-footer__links">
-                  {column.links.map((link) => (
-                    <a key={link} className="site-footer__link" href="#">
+                  {column.links.map((link, index) => (
+                    <a key={`${column.id}-${index}`} className="site-footer__link" href="#">
                       {link}
                     </a>
                   ))}

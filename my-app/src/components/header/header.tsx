@@ -3,33 +3,29 @@ import logoUrl from '../../assets/header/Logo.svg'
 import moneyIconUrl from '../../assets/header/money.svg'
 import languageIconUrl from '../../assets/header/language.svg'
 import userIconUrl from '../../assets/header/user.svg'
-import { navRoutes, type RoutePath } from '../../router/routes'
+import { NavLink } from 'react-router-dom'
+import { navRoutes } from '../../router/routes'
 
-interface HeaderProps {
-  currentPath: RoutePath
-}
-
-export const Header = ({ currentPath }: HeaderProps) => {
+export const Header = () => {
   return (
     <header className="site-header">
       <div className="site-header__inner">
-        <a className="site-header__brand" href="#/" aria-label="Easy Stay home">
+        <NavLink className="site-header__brand" to="/" aria-label="Easy Stay home">
           <img className="site-header__logo" src={logoUrl} alt="Easy Stay logo" />
-        </a>
+        </NavLink>
 
         <nav className="site-header__nav" aria-label="Main navigation">
-          {navRoutes.map((route) => {
-            const className =
-              route.path === currentPath
-                ? 'site-header__nav-link site-header__nav-link--active'
-                : 'site-header__nav-link'
-
-            return (
-              <a key={route.path} className={className} href={route.path}>
-                {route.label}
-              </a>
-            )
-          })}
+          {navRoutes.map((route) => (
+            <NavLink
+              key={route.path}
+              to={route.path}
+              className={({ isActive }) =>
+                isActive ? 'site-header__nav-link site-header__nav-link--active' : 'site-header__nav-link'
+              }
+            >
+              {route.label}
+            </NavLink>
+          ))}
         </nav>
 
         <div className="site-header__actions">

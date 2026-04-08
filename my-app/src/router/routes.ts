@@ -2,10 +2,11 @@ import type { ComponentType } from 'react'
 import { ReservationPage } from '../Reservation'
 import { AboutPage } from '../pages/About'
 import { ContactPage } from '../pages/Contact'
+import { ErrorPage } from '../pages/Error'
 import { HomePage } from '../pages/Home/Home'
 import { OffersPage } from '../pages/Offers'
 
-export type RoutePath = '#/' | '#/about' | '#/contact' | '#/reservation' | '#/offers'
+export type RoutePath = '/' | '/offers' | '/reservation' | '/about' | '/contact'
 
 export interface AppRoute {
   path: RoutePath
@@ -17,35 +18,35 @@ export interface AppRoute {
 
 export const routes: readonly AppRoute[] = [
   {
-    path: '#/',
+    path: '/',
     label: 'მთავარი გვერდი',
     showInNav: true,
     pageTitle: 'Home',
     component: HomePage,
   },
   {
-    path: '#/offers',
+    path: '/offers',
     label: 'შეთავაზებები',
     showInNav: true,
     pageTitle: 'Offers',
     component: OffersPage,
   },
   {
-    path: '#/reservation',
+    path: '/reservation',
     label: 'დაჯავშნა',
     showInNav: true,
     pageTitle: 'Reservation',
     component: ReservationPage,
   },
   {
-    path: '#/about',
+    path: '/about',
     label: 'ჩვენი შესახებ',
     showInNav: true,
     pageTitle: 'About',
     component: AboutPage,
   },
   {
-    path: '#/contact',
+    path: '/contact',
     label: 'დაგვიკავშირდით',
     showInNav: true,
     pageTitle: 'Contact',
@@ -55,11 +56,8 @@ export const routes: readonly AppRoute[] = [
 
 export const navRoutes = routes.filter((route) => route.showInNav)
 
-export const getCurrentPath = (): RoutePath => {
-  const currentHash = window.location.hash as RoutePath
-
-  return routes.some((route) => route.path === currentHash) ? currentHash : '#/'
-}
-
-export const getRouteByPath = (path: RoutePath): AppRoute =>
-  routes.find((route) => route.path === path) ?? routes[0]
+export const errorRoute = {
+  path: '*',
+  pageTitle: 'Not Found',
+  component: ErrorPage,
+} as const

@@ -1,33 +1,25 @@
-import { useEffect, useState } from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { MainLayout } from './components/layout/MainLayout'
-import { getCurrentPath, getRouteByPath } from './router/routes'
+import { errorRoute, routes } from './router/routes'
 
 export const App = () => {
-  const [currentPath, setCurrentPath] = useState(getCurrentPath)
-
-  useEffect(() => {
-    const handleHashChange = () => {
-      setCurrentPath(getCurrentPath())
-    }
-
-    window.addEventListener('hashchange', handleHashChange)
-
-    return () => {
-      window.removeEventListener('hashchange', handleHashChange)
-    }
-  }, [])
-
-  const route = getRouteByPath(currentPath)
-  const Page = route.component
-
-  useEffect(() => {
-    document.title = `${route.pageTitle} | Easy Stay`
-    window.scrollTo(0, 0)
-  }, [route.pageTitle])
+  const ErrorComponent = errorRoute.component
 
   return (
-    <MainLayout currentPath={currentPath}>
-      <Page />
-    </MainLayout>
+    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+      <Routes>
+        <Route element={<MainLayout />}>
+          {routes.map((route) => {
+            const Page = route.component
+
+            return (
+              <Route key={route.path} path={route.path} element={<Page />} handle={{ pageTitle: route.pageTitle }} />
+            )
+          })}
+
+          <Route path={errorRoute.path} element={<ErrorComponent />} handle={{ pageTitle: errorRoute.pageTitle }} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
